@@ -26,11 +26,14 @@ export const Box = styled.div`
     width: 75vw;
     left: 13vw;
   }
+
+  @media (max-height: 600px) {
+    width: 45vw;
+    left: 28vw;
+  }
 `;
 
 export const Logo = styled.img`
-  height: 19vh;
-
   @media (min-width: 1024px) {
     width: 20vw;
   }
@@ -41,6 +44,10 @@ export const Logo = styled.img`
 
   @media (max-width: 599px) {
     width: 60vw;
+  }
+
+  @media (max-height: 600px) {
+    width: 22vw;
   }
 `;
 
@@ -69,6 +76,12 @@ export const Input = styled.input`
     width: 60vw;
   }
 
+  @media (max-height: 600px) {
+    width: 19vw;
+    height: 3vh;
+    padding: 3vh;
+  }
+
   &::placeholder {
     color: #672402;
     font-size: 1rem;
@@ -76,11 +89,6 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-@media (max-height:600px) and (max-width:1024px) {
-    width: 16vw;
-    height: 3vh;
-  }
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,6 +112,12 @@ export const Button = styled.button`
 
   @media (max-width: 599px) {
     width: 64vw;
+  }
+
+  @media (max-height: 600px) {
+    width: 23vw;
+    height: 1vh;
+    padding: 4vh;
   }
 
   &:hover {
