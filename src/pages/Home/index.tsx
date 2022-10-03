@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { api } from "../../api";
 import Background from "../../components/Background";
+import Time from "../../components/Date";
 import Menu from "../../components/Menu";
-import { ButtonConfig, ButtonHome } from "../../components/Menu/style";
+import { Main } from "./style";
 
 const Home: React.FC = () => {
   const [books, setBooks] = useState([]);
-
   const getBooks = async () => {
     const response = await api.get("book/getAll");
     setBooks(response.data);
@@ -14,15 +14,17 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     getBooks();
-  },[]);
-  
+  }, []);
+
   return (
     <>
-    {console.log(books)}
       <Background />
-      <Menu />
-      <ButtonHome />
-      <ButtonConfig />
+      <Main>
+        <Menu />
+        <div id="content">
+          <Time />
+        </div>
+      </Main>
     </>
   );
 };
