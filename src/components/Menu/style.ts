@@ -64,3 +64,17 @@ export const ButtonConfig = styled.button`
   border: none;
   background: url("https://cdn.discordapp.com/attachments/985645895779508254/1023673860559736872/Rectangle_27.png");
 `;
+
+export const ButtonLogOut = styled.img`
+  /* position: absolute; */
+  width: 48px;
+  height: 51px;
+  /* left: 105px;
+  top: 391px; */
+  border: none;
+  background:none;
+  /* background: url("https://cdn.discordapp.com/attachments/985645895779508254/1026652429753782332/logout.png"); */
+  &:hover{
+    cursor: pointer;
+  }
+`;

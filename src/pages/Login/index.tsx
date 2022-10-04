@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../../api";
 import Background from "../../components/Background";
 import BoxLogin from "../../components/BoxLogin";
-import { useAuth } from "../../context/Auth";
 
 export interface DatosLogin {
   _email: string | undefined;
@@ -26,10 +25,10 @@ const Login = (props: Props) => {
       .post("/auth/login", data)
       .then((res) => {
         if (res.data.auth === true) {
-          console.log("logado com sucesso");
           localStorage.setItem("token", res.data._token);
           props.setLogged(true);
           navigate("/home");
+          return console.log("logado com sucesso");
         }
         return console.log("Usuário ou senha inválido");
       })
@@ -39,18 +38,24 @@ const Login = (props: Props) => {
       });
   };
 
+
   const checkToken = async () => {
-    console.log(_token);
     await api
-      .post("/auth/login", {_token})
+      .post("/auth/login", { _token })
       .then((res) => {
-        console.log(res.data.auth);
         if (res.data.auth === true) {
           props.setLogged(true);
           navigate("/home");
+          toast.success("Token validado");
+          return "Token validado";
         }
+        toast.error("Token invalido ou expirado");
+        return "Token invalido ou expirado";
       })
-      .catch(() => console.log("token expirado"));
+      .catch(() => {
+        toast.error("Error ao validar Token");
+        console.log("Error ao validar Token");
+      });
   };
 
   useEffect(() => {

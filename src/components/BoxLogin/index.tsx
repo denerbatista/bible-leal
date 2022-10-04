@@ -4,7 +4,7 @@ import { Box, Button, Input, Logo } from "./style";
 interface Props {
   setPassword: (e: any) => void;
   setEmail: (e: any) => void;
-  handleLogin: (data: DatosLogin) => any;
+  handleLogin: (data: DatosLogin) => void;
   _password: string | undefined;
   _email: string | undefined;
 }
@@ -30,7 +30,13 @@ const BoxLogin = (props: Props) => {
             props.setPassword(e.target.value);
           }}
         />
-        <Button onClick={()=>{props.handleLogin(data)}}>Entrar</Button>
+        <Button
+          onClick={() => {
+            props.handleLogin(data);
+          }}
+        >
+          Entrar
+        </Button>
       </Box>
     </>
   );
