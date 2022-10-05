@@ -7,6 +7,7 @@ export const Span = styled.div`
   background: none;
   margin-top: 8vh;
   margin-left: 4vw;
+  height: 8.67%;
   span {
     color: #672402;
     background: none;
@@ -16,5 +17,6 @@ export const Span = styled.div`
   }
   span#title {
     font-size: 31px;
+    font-weight: bolder;
   }
 `;

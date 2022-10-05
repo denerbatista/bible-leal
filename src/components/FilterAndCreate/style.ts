@@ -6,6 +6,7 @@ export const Div = styled.div`
   justify-content: center;
   background: none;
   gap: 15px;
+  height: 11.89%;
   div {
     background: #b4995d;
     display: flex;
@@ -37,6 +38,5 @@ export const Create = styled.img`
   width: 61px;
   height: 64px;
   margin-top: 17px;
-  filter: drop-shadow(12px 11px 18px #000000);
   background: none;
 `;

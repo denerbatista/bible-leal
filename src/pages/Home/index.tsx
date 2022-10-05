@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { api } from "../../api";
 import Background from "../../components/Background";
-import Time from "../../components/Date";
+import Time from "../../components/Time";
 import FilterAndCreate from "../../components/FilterAndCreate";
+import List from "../../components/List";
 import Menu from "../../components/Menu";
+import Selector from "../../components/Selector";
 import { Main } from "./style";
 
 interface Props {
@@ -28,7 +30,9 @@ const Home = (props: Props) => {
         <Menu handleLogOut={props.handleLogOut} />
         <div id="content">
           <Time />
-          <FilterAndCreate/>
+          <FilterAndCreate />
+          <Selector/>
+          <List/>
         </div>
       </Main>
     </>

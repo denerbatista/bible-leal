@@ -13,10 +13,6 @@ function Time() {
     "maio",
     "junho",
     "julho",
-    "abril",
-    "maio",
-    "junho",
-    "julho",
     "agosto",
     "setembro",
     "outubro",
@@ -37,7 +33,7 @@ function Time() {
   const [dateView] = useState(
     `${dayWeek[dayWeekNumber]}, ${dia} de ${mes[mesNumber]} de ${ano}`
   );
-
+console.log(mesNumber)
   return (
     <>
       <Span>
