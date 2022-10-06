@@ -32,7 +32,7 @@ const Home = (props: Props) => {
           <Time />
           <FilterAndCreate />
           <Selector/>
-          <List/>
+          <List books={books}/>
         </div>
       </Main>
     </>
