@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const Get = styled.div`
   height: 57.27%;
-  margin: 0 4vw;
+  margin: 0 4vw 0 1.7vw;
   overflow: auto;
   background: none;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap:3vw;
+  gap:3.4vw;
+  direction:rtl;
   ::-webkit-scrollbar-track {
     background: rgba(103, 36, 2, 0.5);
     border-radius: 22px;
