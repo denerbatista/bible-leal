@@ -5,7 +5,7 @@ export const Span = styled.div`
   justify-content: space-evenly;
   flex-direction: column;
   background: none;
-  margin-top: 8vh;
+  margin-top: 4vh;
   margin-left: 4vw;
   height: 8.67%;
   span {
