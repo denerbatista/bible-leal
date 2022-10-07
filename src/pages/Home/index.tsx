@@ -7,6 +7,7 @@ import List from "../../components/List";
 import Menu from "../../components/Menu";
 import Selector from "../../components/Selector";
 import { Main } from "./style";
+import Modal from "../../components/Modal";
 
 interface Props {
   handleLogOut: () => void;
@@ -34,6 +35,7 @@ const Home = (props: Props) => {
           <Selector/>
           <List books={books}/>
         </div>
+        <Modal/>
       </Main>
     </>
   );
