@@ -16,7 +16,7 @@ interface Props {
 
 const Home = (props: Props) => {
   const [books, setBooks] = useState([]);
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
   const [crudBook, setCrudBook] = useState(false);
   const [editStatus, setEditStatus] = useState(false);
   const [element, setElement] = useState<any>();
