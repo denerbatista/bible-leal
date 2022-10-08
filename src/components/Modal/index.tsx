@@ -1,9 +1,13 @@
 import { useState } from "react";
+import ContentModalBook from "../ContentModalBook";
+import CrudBook from "../CrudBook";
 import { Div } from "./style";
 
 interface Props {
   crudBook: boolean;
   setCrudBook: (value: boolean) => void;
+  editStatus: boolean;
+  setEditStatus: (value: boolean) => void;
   setModal: (value: boolean) => void;
   element: {
     _id: string;
@@ -33,8 +37,14 @@ interface Props {
 
 function Modal(props: Props) {
   const handleCloseModal = () => {
+    props.setEditStatus(false);
     props.setCrudBook(false);
     props.setModal(false);
+  };
+  const handleEditStatus = () => {
+    handleCloseModal();
+    props.setEditStatus(true);
+    props.setModal(true);
   };
   return (
     <>
@@ -46,23 +56,44 @@ function Modal(props: Props) {
           />
         </div>
         {props.crudBook && (
-          <div id="crud-book">
-            <div id="text">
+          <ContentModalBook
+            crudBook={props.crudBook}
+            setCrudBook={props.setCrudBook}
+            setEditStatus={props.setEditStatus}
+            setModal={props.setModal}
+            handleCloseModal={handleCloseModal}
+            element={props.element}
+          />
+        )}
+        {props.editStatus && (
+          <div id="edit-status">
+            <div id="text-status">
               <span>Autor: {props.element._title}</span>
               <span>Nº: {props.element._register}</span>
               <span>Editora: {props.element._publishingCompany}</span>
               <span>Autor: {props.element._author}</span>
               <span>Ilustrador: {props.element._ilustrator}</span>
-              <span>Status: {props.element._status}</span>
+              <span>
+                Status:{" "}
+                <select name="status" id="select-status">
+                  <option>Disponível</option>
+                  <option>Emprestado</option>
+                  <option value="">Desaparecido</option>
+                </select>
+              </span>
             </div>
-            <div id="buttons">
-              <button id="update">Atualizar status</button>
-              <button id="history">Histórico</button>
-              <button id="edit">Editar</button>
-              <button id="delete">Deletar</button>
-              <button id="add-genre">Adicionar Gênero</button>
-              <button id="edit-genre">Editar Gênero</button>
-              <button id="delete-genre">Deletar Gênero</button>
+            <div id="userAndDate">
+              <fieldset>
+                <label htmlFor="">Usuário:</label>
+                <input type="text" />
+              </fieldset>
+              <fieldset>
+                <label htmlFor="">Data:</label>
+                <input type="date" />
+              </fieldset>
+            </div>
+            <div id="buttons-status">
+              <button id="update-status">Atualizar</button>
             </div>
           </div>
         )}

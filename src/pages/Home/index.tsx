@@ -16,9 +16,10 @@ interface Props {
 
 const Home = (props: Props) => {
   const [books, setBooks] = useState([]);
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(true);
   const [crudBook, setCrudBook] = useState(false);
-  const[element,setElement] = useState<any>()
+  const [editStatus, setEditStatus] = useState(false);
+  const [element, setElement] = useState<any>();
   const getBooks = async () => {
     const response = await api.get("book/getAll");
     setBooks(response.data);
@@ -37,9 +38,23 @@ const Home = (props: Props) => {
           <Time />
           <FilterAndCreate />
           <Selector />
-          <List books={books} setCrudBook={setCrudBook} setModal={setModal} setElement={setElement}/>
+          <List
+            books={books}
+            setCrudBook={setCrudBook}
+            setModal={setModal}
+            setElement={setElement}
+          />
         </div>
-        {modal && <Modal crudBook={crudBook} setCrudBook={setCrudBook} setModal={setModal} element={element} />}
+        {modal && (
+          <Modal
+            crudBook={crudBook}
+            setCrudBook={setCrudBook}
+            setModal={setModal}
+            editStatus={editStatus}
+            setEditStatus={setEditStatus}
+            element={element}
+          />
+        )}
       </Main>
     </>
   );

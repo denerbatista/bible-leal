@@ -5,6 +5,7 @@ export const Div = styled.div`
   height: 90vh;
   background: rgba(180, 153, 93, 0.8);
   border-radius: 22px 75px 75px 22px;
+
   div#close {
     height: 3.23%;
     padding: 3vh;
@@ -13,15 +14,15 @@ export const Div = styled.div`
       background: none;
     }
   }
-  div#crud-book {
+
+  div#edit-status {
     background: none;
     height: 90%;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
-
-    div#text {
+    div#text-status {
       display: flex;
       background: none;
       align-items: left;
@@ -36,12 +37,11 @@ export const Div = styled.div`
         font-size: 20px;
       }
     }
-    div#buttons {
+    div#buttons-status {
       display: flex;
       background: none;
       align-items: center;
       flex-direction: column;
-      justify-content: space-evenly;
       width: 100%;
       height: 100%;
       button {
@@ -51,26 +51,51 @@ export const Div = styled.div`
         border-radius: 10px;
         color: #ffffff;
       }
-      button#update {
+      button#update-status {
         background-color: #07662a;
       }
-      button#history {
-        background-color: #663a07;
-      }
-      button#edit {
-        background-color: #665707;
-      }
-      button#delete {
-        background-color: #660707;
-      }
-      button#add-genre {
-        background-color: #376607;
-      }
-      button#edit-genre {
-        background-color: #596607;
-      }
-      button#delete-genre {
-        background-color: #660707;
+    }
+    #select-status {
+      background: #d9d9d9;
+      border-radius: 5px;
+      width: 209px;
+      height: 29px;
+      font-family: "Inter";
+      font-weight: 800;
+      font-size: 18px;
+      color: #000000;
+    }
+    #userAndDate {
+      display: flex;
+      background: none;
+      align-items: left;
+      flex-direction: column;
+      justify-content: space-evenly;
+      width: 75%;
+      height: 100%;
+      fieldSet {
+        background: none;
+        display: flex;
+        flex-direction: column;
+        border: none;
+        label {
+          border: none;
+          background: none;
+          font-weight: 800;
+          font-size: 20px;
+          color:#672402;
+        }
+        input {
+          border: none;
+          background: #d9d9d9;
+          border-radius: 5px;
+          width: 100%;
+          height: 29px;
+          font-family: "Inter";
+          font-weight: 800;
+          font-size: 18px;
+          color: #000000;
+        }
       }
     }
   }
