@@ -28,19 +28,22 @@ interface Book {
 
 interface Props {
   books: Book[];
+  setElement: (e: any) => void;
+  setCrudBook: (value: boolean) => void;
+  setModal: (value: boolean) => void;
 }
 
-function List({ books }: Props) {
+function List({ books, setCrudBook, setModal, setElement }: Props) {
   return (
     <>
       <Get>
         {books.map((e: Book) => (
           <Card
             key={e._id}
-            picture={e._picture}
-            title={e._title}
-            author={e._author}
-            register={e._register}
+            element={e}
+            setCrudBook={setCrudBook}
+            setModal={setModal}
+            setElement={setElement}
           />
         ))}
       </Get>

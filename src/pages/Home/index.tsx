@@ -8,6 +8,7 @@ import Menu from "../../components/Menu";
 import Selector from "../../components/Selector";
 import { Main } from "./style";
 import Modal from "../../components/Modal";
+import CrudBook from "../../components/CrudBook";
 
 interface Props {
   handleLogOut: () => void;
@@ -15,6 +16,9 @@ interface Props {
 
 const Home = (props: Props) => {
   const [books, setBooks] = useState([]);
+  const [modal, setModal] = useState(false);
+  const [crudBook, setCrudBook] = useState(false);
+  const[element,setElement] = useState<any>()
   const getBooks = async () => {
     const response = await api.get("book/getAll");
     setBooks(response.data);
@@ -32,10 +36,10 @@ const Home = (props: Props) => {
         <div id="content">
           <Time />
           <FilterAndCreate />
-          <Selector/>
-          <List books={books}/>
+          <Selector />
+          <List books={books} setCrudBook={setCrudBook} setModal={setModal} setElement={setElement}/>
         </div>
-        <Modal/>
+        {modal && <Modal crudBook={crudBook} setCrudBook={setCrudBook} setModal={setModal} element={element} />}
       </Main>
     </>
   );

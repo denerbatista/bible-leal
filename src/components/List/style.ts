@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Get = styled.div`
   height: 57.27%;
-  margin: 4vh 4vw 0 1.7vw;
+  margin: 5vh 4vw 0 1.7vw;
   overflow: auto;
   background: none;
   display: flex;
