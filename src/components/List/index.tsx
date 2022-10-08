@@ -29,12 +29,19 @@ interface Book {
 
 interface Props {
   books: Book[];
+  filterTitles: string;
   setElement: (e: any) => void;
   setCrudBook: (value: boolean) => void;
   setModal: (value: boolean) => void;
 }
 
-function List({ books, setCrudBook, setModal, setElement }: Props) {
+function List({
+  books,
+  setCrudBook,
+  setModal,
+  setElement,
+  filterTitles,
+}: Props) {
   const [filterGenre, setFilterGenre] = useState<any>("");
   const [filterStatus, setFilterStatus] = useState<any>("");
   const [selectEmprestado, setSelctEmprestado] = useState(false);
@@ -73,16 +80,10 @@ function List({ books, setCrudBook, setModal, setElement }: Props) {
           <option value="Comédia">Comédia</option>
           <option value="Drama">Drama</option>
         </select>
-        <button
-          id="button-status-emprestado"
-          onClick={handleSelectEmprestado}
-        >
+        <button id="button-status-emprestado" onClick={handleSelectEmprestado}>
           Emprestados
         </button>
-        <button
-          id="button-status-disponivel"
-          onClick={handleSelectDisponivel}
-        >
+        <button id="button-status-disponivel" onClick={handleSelectDisponivel}>
           Disponíveis
         </button>
         <button id="button-status-todos" onClick={handleSelectTodos}>
@@ -91,6 +92,7 @@ function List({ books, setCrudBook, setModal, setElement }: Props) {
       </Rank>
       <Get>
         {books
+          .filter((e) => e._title.toLowerCase().includes(filterTitles.toLowerCase()))
           .filter((e) => e._genre.includes(filterGenre))
           .filter((e) => e._status.includes(filterStatus))
           .map((e: Book) => (

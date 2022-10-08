@@ -20,6 +20,7 @@ const Home = (props: Props) => {
   const [crudBook, setCrudBook] = useState(false);
   const [editStatus, setEditStatus] = useState(false);
   const [element, setElement] = useState<any>();
+  const[filterTitles, setFilterTitles]=useState<any>("")
   const getBooks = async () => {
     const response = await api.get("book/getAll");
     setBooks(response.data);
@@ -36,13 +37,14 @@ const Home = (props: Props) => {
         <Menu handleLogOut={props.handleLogOut} />
         <div id="content">
           <Time />
-          <FilterAndCreate />
+          <FilterAndCreate setFilterTitles={setFilterTitles} />
           <Selector />
           <List
             books={books}
             setCrudBook={setCrudBook}
             setModal={setModal}
             setElement={setElement}
+            filterTitles={filterTitles}
           />
         </div>
         {modal && (
