@@ -1,6 +1,5 @@
-import { useState } from "react";
 import ContentModalBook from "../ContentModalBook";
-import CrudBook from "../CrudBook";
+import ContentModalEditStatus from "../ContentModalEditStatus";
 import { Div } from "./style";
 
 interface Props {
@@ -66,36 +65,14 @@ function Modal(props: Props) {
           />
         )}
         {props.editStatus && (
-          <div id="edit-status">
-            <div id="text-status">
-              <span>Autor: {props.element._title}</span>
-              <span>Nº: {props.element._register}</span>
-              <span>Editora: {props.element._publishingCompany}</span>
-              <span>Autor: {props.element._author}</span>
-              <span>Ilustrador: {props.element._ilustrator}</span>
-              <span>
-                Status:{" "}
-                <select name="status" id="select-status">
-                  <option>Disponível</option>
-                  <option>Emprestado</option>
-                  <option value="">Desaparecido</option>
-                </select>
-              </span>
-            </div>
-            <div id="userAndDate">
-              <fieldset>
-                <label htmlFor="">Usuário:</label>
-                <input type="text" />
-              </fieldset>
-              <fieldset>
-                <label htmlFor="">Data:</label>
-                <input type="date" />
-              </fieldset>
-            </div>
-            <div id="buttons-status">
-              <button id="update-status">Atualizar</button>
-            </div>
-          </div>
+          <ContentModalEditStatus
+            crudBook={props.crudBook}
+            setCrudBook={props.setCrudBook}
+            setEditStatus={props.setEditStatus}
+            setModal={props.setModal}
+            handleCloseModal={handleCloseModal}
+            element={props.element}
+          />
         )}
       </Div>
     </>
