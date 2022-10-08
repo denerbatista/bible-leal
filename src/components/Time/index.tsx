@@ -33,7 +33,6 @@ function Time() {
   const [dateView] = useState(
     `${dayWeek[dayWeekNumber]}, ${dia} de ${mes[mesNumber]} de ${ano}`
   );
-console.log(mesNumber)
   return (
     <>
       <Span>
