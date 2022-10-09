@@ -12,7 +12,7 @@ export const Rank = styled.div`
   background: none;
   justify-content: left;
   height: 3vh;
-  padding: 1vh;
+  padding: 2.5vh;
   gap: 3vw;
   margin-left: 4vw;
   button {

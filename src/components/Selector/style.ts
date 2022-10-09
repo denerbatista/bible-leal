@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const Div = styled.div`
-  padding: 2vw 4vw 0 4vw;
+  padding: 0 4vw 0 4vw;
   background: none;
   height:8.17%;
   div {
