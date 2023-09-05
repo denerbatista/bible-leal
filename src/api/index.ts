@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://public-love-purple-sweden.bohr.io",
+  baseURL: "bibli-leal-server-production.up.railway.app",
 });
